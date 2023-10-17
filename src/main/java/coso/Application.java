@@ -2,7 +2,6 @@ package coso;
 
 import entities.Event;
 import entities.EventDAO;
-import enums.TipoEvento;
 import utils.JPAutil;
 
 import javax.persistence.EntityManager;
@@ -20,11 +19,13 @@ public class Application {
         try {
             EventDAO eD = new EventDAO(em);
 
-            Event test = new Event("test", data, TipoEvento.PRIVATO, 20);
-            eD.save(test);
+//            Event test = new Event("test", data, TipoEvento.PRIVATO, 20);
+//            eD.save(test);
 
-            Event findTest = eD.findById(1);
+            Event findTest = eD.findById(3);
             if (findTest != null) System.out.println(findTest);
+
+            eD.delete(3);
 
 
         } catch (Exception ex) {
@@ -34,6 +35,6 @@ public class Application {
             emf.close();
         }
 
-        
+
     }
 }

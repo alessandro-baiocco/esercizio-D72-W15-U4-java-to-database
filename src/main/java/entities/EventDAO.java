@@ -23,5 +23,22 @@ public class EventDAO {
         return em.find(Event.class, id);
     }
 
+    public void delete(long id) {
+        Event eventFounded = em.find(Event.class, id);
+        try {
+            if (eventFounded != null) {
+                EntityTransaction transaction = em.getTransaction();
+                transaction.begin();
+                em.remove(eventFounded);
+                transaction.commit();
+                System.out.println("l'evento è stato cancellato correttamente");
+            } else {
+                System.err.println("l'evento non è stato trovato");
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
 
+
+    }
 }
