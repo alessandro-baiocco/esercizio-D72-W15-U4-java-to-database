@@ -1,9 +1,9 @@
 package entities;
 
 import enums.TipoEvento;
-import org.hibernate.type.DateType;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "evento")
@@ -12,7 +12,7 @@ public class Event {
     @GeneratedValue
     private long eventId;
     private String titolo;
-    private DateType dataEvento;
+    private LocalDate dataEvento;
     @Enumerated(EnumType.STRING)
     private TipoEvento tipoEvento;
     private int numeroMassimoPartecipanti;
@@ -21,12 +21,42 @@ public class Event {
     public Event() {
     }
 
-    public Event(String titolo, DateType dataEvento, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
+    public Event(String titolo, LocalDate dataEvento, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 
+    public String getTitolo() {
+        return titolo;
+    }
 
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public LocalDate getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(LocalDate dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public TipoEvento getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(TipoEvento tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    public int getNumeroMassimoPartecipanti() {
+        return numeroMassimoPartecipanti;
+    }
+
+    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
 }
