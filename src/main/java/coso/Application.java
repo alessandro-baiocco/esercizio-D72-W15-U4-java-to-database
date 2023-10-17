@@ -26,6 +26,15 @@ public class Application {
             if (findTest != null) System.out.println(findTest);
 
             eD.delete(3);
+            Event event4 = eD.findById(4);
+            if (event4 != null) {
+                System.out.println("--------------------------");
+                event4.setTitolo("Ajeje");
+                System.out.println(event4);
+                eD.refresh(event4);
+                System.out.println("------------------");
+                System.out.println(event4);
+            }
 
 
         } catch (Exception ex) {

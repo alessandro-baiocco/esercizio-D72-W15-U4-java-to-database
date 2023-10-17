@@ -12,12 +12,16 @@ public class EventDAO {
 
     public void save(Event evento) {
         EntityTransaction transaction = em.getTransaction();
-
-        transaction.begin();
-        em.persist(evento);
-        transaction.commit();
-        System.out.println("Nuovo studente salvato correttamente");
+        try {
+            transaction.begin();
+            em.persist(evento);
+            transaction.commit();
+            System.out.println("Nuovo studente salvato correttamente");
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
     }
+
 
     public Event findById(long id) {
         return em.find(Event.class, id);
@@ -38,7 +42,11 @@ public class EventDAO {
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
+    }
 
 
+    public void refresh(Event evento) {
+        Event needRef = em.find(Event.class, evento.getEventId());
+        if (needRef != null) em.refresh(needRef);
     }
 }

@@ -36,6 +36,10 @@ public class Event {
         this.titolo = titolo;
     }
 
+    public long getEventId() {
+        return eventId;
+    }
+
     public LocalDate getDataEvento() {
         return dataEvento;
     }
