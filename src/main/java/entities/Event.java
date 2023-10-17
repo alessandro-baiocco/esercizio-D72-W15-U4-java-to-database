@@ -59,4 +59,13 @@ public class Event {
     public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
+
+    @Override
+    public String toString() {
+        return "Event " +
+                titolo +
+                " | " + dataEvento +
+                " | " + tipoEvento +
+                "| massimo : " + numeroMassimoPartecipanti + " partecipanti";
+    }
 }

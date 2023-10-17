@@ -19,5 +19,9 @@ public class EventDAO {
         System.out.println("Nuovo studente salvato correttamente");
     }
 
+    public Event findById(long id) {
+        return em.find(Event.class, id);
+    }
+
 
 }

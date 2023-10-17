@@ -23,6 +23,9 @@ public class Application {
             Event test = new Event("test", data, TipoEvento.PRIVATO, 20);
             eD.save(test);
 
+            Event findTest = eD.findById(1);
+            if (findTest != null) System.out.println(findTest);
+
 
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
@@ -31,7 +34,6 @@ public class Application {
             emf.close();
         }
 
-
-        System.out.println("Hello World!");
+        
     }
 }
